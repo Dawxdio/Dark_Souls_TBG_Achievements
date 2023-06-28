@@ -384,6 +384,13 @@
             "desc":"Complete all achievements",
             "expansion":"Core Set",
             "type":["Boss"]
+        },
+        {
+            "name":"Testowy aczivment",
+            "finished":false,
+            "desc":"Dziala :3",
+            "expansion":"Core Set",
+            "type":["Boss"]
         }
     ]
 }

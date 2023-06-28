@@ -18,7 +18,7 @@ var achievementDesc;
 loadTemplate() async
 {
   String response;
-  response = await rootBundle.loadString("assets/Templates/template2.txt");
+  response = await rootBundle.loadString("assets/Templates/template2.json");
   template = jsonDecode(response);
   //print(template["template"]);
   achievementDesc=template;
@@ -34,7 +34,7 @@ loadProgress() async {
   if(await File('${directory.path}/progress.json').exists())
   {
     file = File('${directory.path}/progress.json');
-    await file.delete();
+    //await file.delete();
     String read = await file.readAsString();
     final result = jsonDecode(read);
     achievementDesc = result;
@@ -146,7 +146,12 @@ class _MainState extends State<Main> {
       }
       */
     }
-
+    void deleteSave() async
+    {
+      final directory = await getApplicationDocumentsDirectory();
+      final file = File('${directory.path}/progress.json');
+      await file.delete();
+    }
     void reset() async {
       await showDialog(
           context: context,
@@ -156,11 +161,12 @@ class _MainState extends State<Main> {
               actions: [
                 IconButton(
                     onPressed: () {
-                      setState(() {
+                      setState((){
+                        deleteSave();
                         for (int i = 0; i < achievementDesc["template"].length; i++) {
                           achievementDesc["template"][i]["finished"] = false;
                         }
-                        saveProgress();
+                        //saveProgress();
                         Navigator.pop(context);
                       });
                     },
@@ -184,7 +190,7 @@ class _MainState extends State<Main> {
     }
 
     int done = howManyDone();
-    
+    var ez="ez";
     return Column(children: [
       Expanded(
         flex: 2,
@@ -244,7 +250,7 @@ class _MainState extends State<Main> {
           ),
         ),
       ),
-  
+      
         
       Expanded(
           flex: 7,
@@ -275,14 +281,14 @@ class _MainState extends State<Main> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              achievementDesc["templates"][index]["name"],
+                              achievementDesc["template"][index]["name"],
                               style: const TextStyle(
                                   color: Colors.white, fontSize: 24),
                             ),
                             Padding(
                               padding: const EdgeInsets.fromLTRB(8, 6, 0, 15),
                               child: Text(
-                                achievementDesc["templates"][index]["desc"],
+                                achievementDesc["template"][index]["desc"],
                                 softWrap: true,
                                 style: const TextStyle(
                                     color: Colors.white, fontSize: 18),
@@ -297,10 +303,10 @@ class _MainState extends State<Main> {
                             fillColor: MaterialStateProperty.all(Colors.white),
                             checkColor: Colors.red,
                             materialTapTargetSize: MaterialTapTargetSize.padded,
-                            value: achievementDesc["templates"][index]["finished"],
+                            value: achievementDesc["template"][index]["finished"],
                             onChanged: (bool? value) {
                               setState(() {
-                                achievementDesc["templates"][index]["finished"] =
+                                achievementDesc["template"][index]["finished"] =
                                     value;
                                 saveProgress();
                               });
