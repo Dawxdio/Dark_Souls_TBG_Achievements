@@ -14,96 +14,58 @@ void saveProgress() async {
 }
 
 var template;
+var achievementDesc;
 loadTemplate() async
 {
   String response;
   response = await rootBundle.loadString("assets/Templates/template2.txt");
   template = jsonDecode(response);
-  print(template["template"].length);
-  await achievementDescLoad();
+  //print(template["template"]);
+  achievementDesc=template;
+  //await achievementDescLoad();
+
 }
 
 
 loadProgress() async {
-  await loadTemplate();
   final directory = await getApplicationDocumentsDirectory();
-  final file = File('${directory.path}/progress.json');
-  String read = await file.readAsString();
-
-  final result = jsonDecode(read);
+  var file;
+  
+  if(await File('${directory.path}/progress.json').exists())
+  {
+    file = File('${directory.path}/progress.json');
+    await file.delete();
+    String read = await file.readAsString();
+    final result = jsonDecode(read);
+    achievementDesc = result;
+  }
+  else
+  {
+    print("s");
+    await loadTemplate();
+  }
+  
   /*for (int i = 0; i < achievementDesc.length; i++) {
     achievementDesc[achievementNames[i]]![1] = result[achievementNames[i]][1];
   }*/
 }
 
 List<String> achievementNames = [
-  'Almost got me',
-  'Amazing Loot',
-  'Are you kidding me',
-  'Armed to the teeth',
-  'Awesome Loot',
-  'Awesome Priest',
-  'Back Pain',
-  'Back well protected',
-  'Break a leg',
-  'Burning passion',
-  'Busted',
-  'Calculated',
-  "Can't touch this",
-  'Could always use a hand...',
-  'Could never have too many, eh?',
-  'Cube Master',
-  'Double Crossed',
-  'Double Handed Trouble',
-  'Duty unfinished',
-  'Expert Dice Roller',
-  'Extra Shiny',
-  'Flawless',
-  'Full House',
-  'Good Herald',
-  'Good Loot',
-  'Great Cleric',
-  'Great Loot',
-  'Hiding in the shadows',
-  'How?',
-  'Human Pinball',
-  'I want it all',
-  'Into the Fire',
-  'Like a gust of wind',
-  'Lucky Throw',
-  'Makes my Head spin',
-  'Master Wizard',
-  'More than just help',
-  "Ol' Reliable",
-  'Old Friend',
-  'Over the top',
-  'Overencumbered with shinies',
-  'Overkill',
-  'PvP Skilled',
-  'Soul Leakage',
-  'Stone Wall',
-  'Take this!',
-  "That's it?",
-  'The Dark Soul',
-  'Treasures of War',
-  'Unfair fight',
-  'Unlucky Bastard',
-  'Unsatisfied',
-  "Wasn't in my plans",
-  "Who's a Good Boy?"
+  
 ];
 
-Map<String, List> achievementDesc = {
+//Map<String, List> achievementDesc = {
   
-};
+//};
 achievementDescLoad()
 {
-  for(int i=0; i<template["template"].length; i++)
+  /*for(int i=0; i<template["template"].length; i++)
   {
     //final addition = template["template"][0]["name"];
     achievementDesc[template["template"][i]["name"]] = [template["template"][i]["desc"],template["template"][i]["finished"],template["template"][i]["type"]];
+    achievementNames.add(template["template"][i]["name"]);
   }
-  print(achievementDesc["Double Crossed"]);
+  print(achievementDesc["Double Crossed"]);*/
 }
 
 class MyApp extends StatefulWidget {
@@ -114,8 +76,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -159,18 +119,19 @@ class _MainState extends State<Main> {
   Widget build(BuildContext context) {
     int howManyDone() {
       int count = 0;
-      print(achievementNames[0]);
-      print(achievementDesc[achievementNames[0]]);
-      /*for (int i = 0; i < achievementNames.length; i++) {
-        if (achievementDesc[achievementNames[i]]![1]) {
+      
+      print(achievementDesc["template"]);
+      for (int i = 0; i < achievementDesc["template"].length; i++) {
+        if (achievementDesc["template"][i]["finished"]) {
           count++;
         }
-      }*/
+      }
+      print(achievementDesc["template"].length);
       return count;
     }
 
     void sort(){
-      if(complete){
+      /*if(complete){
         achievementNames.sort((a,b){
         String aValue = achievementDesc[a]![1].toString();
         String bValue = achievementDesc[b]![1].toString();
@@ -183,7 +144,7 @@ class _MainState extends State<Main> {
         return aValue.compareTo(bValue);
       });
       }
-      
+      */
     }
 
     void reset() async {
@@ -196,8 +157,8 @@ class _MainState extends State<Main> {
                 IconButton(
                     onPressed: () {
                       setState(() {
-                        for (int i = 0; i < achievementDesc.length; i++) {
-                          achievementDesc[achievementNames[i]]![1] = false;
+                        for (int i = 0; i < achievementDesc["template"].length; i++) {
+                          achievementDesc["template"][i]["finished"] = false;
                         }
                         saveProgress();
                         Navigator.pop(context);
@@ -223,6 +184,7 @@ class _MainState extends State<Main> {
     }
 
     int done = howManyDone();
+    
     return Column(children: [
       Expanded(
         flex: 2,
@@ -245,7 +207,7 @@ class _MainState extends State<Main> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Progress: $done / ${achievementNames.length}",
+                      "Progress: $done / ${achievementDesc["template"].length}",
                       style: const TextStyle(fontSize: 24, color: Colors.white),
                     ),
                     IconButton(
@@ -273,9 +235,9 @@ class _MainState extends State<Main> {
                 ),
               ),
               LinearProgressIndicator(
-                value: done / achievementNames.length,
+                value: done / achievementDesc["template"].length,
                 minHeight: 10,
-                valueColor: const AlwaysStoppedAnimation(Colors.black),
+                valueColor: const AlwaysStoppedAnimation(Colors.red),
                 backgroundColor: Colors.grey[900],
               ),
             ],
@@ -295,7 +257,7 @@ class _MainState extends State<Main> {
             child: ListView.builder(
               shrinkWrap: true,
               
-              itemCount: achievementNames.length,
+              itemCount: achievementDesc["template"].length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                   
@@ -313,14 +275,14 @@ class _MainState extends State<Main> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              achievementNames[index],
+                              achievementDesc["templates"][index]["name"],
                               style: const TextStyle(
                                   color: Colors.white, fontSize: 24),
                             ),
                             Padding(
                               padding: const EdgeInsets.fromLTRB(8, 6, 0, 15),
                               child: Text(
-                                achievementDesc[achievementNames[index]]![0],
+                                achievementDesc["templates"][index]["desc"],
                                 softWrap: true,
                                 style: const TextStyle(
                                     color: Colors.white, fontSize: 18),
@@ -335,10 +297,10 @@ class _MainState extends State<Main> {
                             fillColor: MaterialStateProperty.all(Colors.white),
                             checkColor: Colors.red,
                             materialTapTargetSize: MaterialTapTargetSize.padded,
-                            value: achievementDesc[achievementNames[index]]![1],
+                            value: achievementDesc["templates"][index]["finished"],
                             onChanged: (bool? value) {
                               setState(() {
-                                achievementDesc[achievementNames[index]]![1] =
+                                achievementDesc["templates"][index]["finished"] =
                                     value;
                                 saveProgress();
                               });
