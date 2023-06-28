@@ -388,7 +388,7 @@
         {
             "name":"Testowy aczivment",
             "finished":false,
-            "desc":"Dziala :3",
+            "desc":"Dziala :3 Możesz dodac cos do template2.json i zresetowac apke i doda siem nowy quest",
             "expansion":"Core Set",
             "type":["Boss"]
         }

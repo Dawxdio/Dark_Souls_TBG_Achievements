@@ -261,7 +261,7 @@ class _MainState extends State<Main> {
                               padding: EdgeInsets.fromLTRB(8, 6, 0, 20),
                               child: Image(
                                 image: AssetImage("assets/Icons/death.png"),
-                              height: 50,
+                              height: 70,
                             ),
                             ),
                             
