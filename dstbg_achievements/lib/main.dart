@@ -262,11 +262,9 @@ class _MainState extends State<Main> {
             ),
             child: ListView.builder(
               shrinkWrap: true,
-              
               itemCount: achievementDesc["template"].length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
-                  
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.black,
@@ -285,8 +283,9 @@ class _MainState extends State<Main> {
                               style: const TextStyle(
                                   color: Colors.white, fontSize: 24),
                             ),
+                            
                             Padding(
-                              padding: const EdgeInsets.fromLTRB(8, 6, 0, 15),
+                              padding: const EdgeInsets.fromLTRB(8, 6, 0, 20),
                               child: Text(
                                 achievementDesc["template"][index]["desc"],
                                 softWrap: true,
@@ -294,6 +293,14 @@ class _MainState extends State<Main> {
                                     color: Colors.white, fontSize: 18),
                               ),
                             ),
+                            const Padding(
+                              padding: EdgeInsets.fromLTRB(8, 6, 0, 20),
+                              child: Image(
+                                image: AssetImage("assets/Icons/death.png"),
+                              height: 50,
+                            ),
+                            ),
+                            
                           ],
                         ),
                       ),
@@ -311,10 +318,14 @@ class _MainState extends State<Main> {
                                 saveProgress();
                               });
                             }),
-                      )
+                      ),
+                      
+                      
                     ],
                   ),
+                  
             );
+            
                       },
                     ),
           )),
