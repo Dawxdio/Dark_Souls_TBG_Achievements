@@ -54,6 +54,7 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
+  - assets/Templates/
   - assets/wallpaper.jpg
   - assets/wall3.jpg
   # The following line ensures that the Material Icons font is
