@@ -17,6 +17,7 @@ load() async {
   final directory = await getApplicationDocumentsDirectory();
   final file = File('${directory.path}/progress.json');
   String read = await file.readAsString();
+  print(read);
   final result = jsonDecode(read);
   for (int i = 0; i < achievementDesc.length; i++) {
     achievementDesc[achievementNames[i]]![1] = result[achievementNames[i]][1];
@@ -404,70 +405,80 @@ class _MainState extends State<Main> {
               LinearProgressIndicator(
                 value: done / achievementNames.length,
                 minHeight: 10,
-                valueColor: const AlwaysStoppedAnimation(Colors.red),
+                valueColor: const AlwaysStoppedAnimation(Colors.black),
                 backgroundColor: Colors.grey[900],
               ),
             ],
           ),
         ),
       ),
-      Expanded(
-          flex: 7,
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: achievementNames.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.black,
-                ),
-                margin: const EdgeInsets.fromLTRB(10, 0, 15, 15),
-                padding: const EdgeInsets.fromLTRB(10, 15, 10, 0),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width - 100,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            achievementNames[index],
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 24),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(8, 6, 0, 15),
-                            child: Text(
-                              achievementDesc[achievementNames[index]]![0],
-                              softWrap: true,
-                              style: const TextStyle(
-                                  color: Colors.white, fontSize: 18),
-                            ),
-                          ),
-                        ],
-                      ),
+      Container(
+        height: 610,
+        decoration: const BoxDecoration(
+          image:DecorationImage(image: AssetImage("assets/wallpaper.jpg"),fit: BoxFit.fill,)
+          
+        ),
+        child:
+          Expanded(
+              flex: 7,
+              child: ListView.builder(
+                shrinkWrap: true,
+                
+                itemCount: achievementNames.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.black,
                     ),
-                    Transform.scale(
-                      scale: 1.3,
-                      child: Checkbox(
-                          fillColor: MaterialStateProperty.all(Colors.white),
-                          checkColor: Colors.red,
-                          materialTapTargetSize: MaterialTapTargetSize.padded,
-                          value: achievementDesc[achievementNames[index]]![1],
-                          onChanged: (bool? value) {
-                            setState(() {
-                              achievementDesc[achievementNames[index]]![1] =
-                                  value;
-                              save();
-                            });
-                          }),
-                    )
-                  ],
-                ),
+                    margin: const EdgeInsets.fromLTRB(10, 0, 15, 15),
+                    padding: const EdgeInsets.fromLTRB(10, 15, 10, 0),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width - 100,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                achievementNames[index],
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 24),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(8, 6, 0, 15),
+                                child: Text(
+                                  achievementDesc[achievementNames[index]]![0],
+                                  softWrap: true,
+                                  style: const TextStyle(
+                                      color: Colors.white, fontSize: 18),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Transform.scale(
+                          scale: 1.3,
+                          child: Checkbox(
+                              fillColor: MaterialStateProperty.all(Colors.white),
+                              checkColor: Colors.red,
+                              materialTapTargetSize: MaterialTapTargetSize.padded,
+                              value: achievementDesc[achievementNames[index]]![1],
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  achievementDesc[achievementNames[index]]![1] =
+                                      value;
+                                  save();
+                                });
+                              }),
+                        )
+                      ],
+                    ),
               );
             },
           )),
+    )
     ]);
   }
 }
