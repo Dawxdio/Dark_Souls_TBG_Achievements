@@ -35,36 +35,100 @@ loadProgress() async {
   }
 }
 
-class NavDrawer extends StatelessWidget {
+List<String> types = ["attack","block","death","encounter","equipment"];
+List<String> availableTypes = List.from(types);
+List<bool> filterFinished = [true, true];
+class NavDrawer extends StatefulWidget {
   const NavDrawer({super.key});
 
   @override
+  State<NavDrawer> createState() => _NavDrawerState();
+}
+
+class _NavDrawerState extends State<NavDrawer> {
+  @override
   Widget build(BuildContext context) {
-    List<String> imgs=["attack.png","block.png","boss.png","death.png","encounter.png","equipment.png"];
     return Drawer(
+      backgroundColor: Colors.black,
       child: ListView(
         children: [
-          DrawerHeader(
+          const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.orange[400],
-              border: const Border(
-                bottom: BorderSide(
-                  color: Colors.purple,
-                  width: 10,
-                ),
-                left: BorderSide(
-                  color: Colors.purple,
-                  width: 5,
-                ),
-              ),
+              color: Colors.black,
             ),
-            child: const Text("Filter Achievements"),
+            child: Text("Filter Achievements by type",textAlign: TextAlign.left,style: TextStyle(color: Colors.white,fontSize: 36)),
           ),
-          for(int i=0;i<imgs.length;i++)
+          
+          Row(
+            children:[ 
+              const Padding(
+                padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                child: Text("Unfinished", style:TextStyle(color: Colors.white)),
+              ),
+              Checkbox(
+                value: filterFinished[0], 
+                
+                fillColor: MaterialStateProperty.all(Colors.white),
+                checkColor: Colors.red,
+                materialTapTargetSize: MaterialTapTargetSize.padded,
+                onChanged: (bool? value){
+                  setState(() {
+                    filterFinished[0]=value!;
+                });
+                }
+
+              ),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                child: Text("Finished", style:TextStyle(color: Colors.white)),
+              ),
+              Checkbox(
+                value: filterFinished[1], 
+                
+                fillColor: MaterialStateProperty.all(Colors.white),
+                checkColor: Colors.red,
+                materialTapTargetSize: MaterialTapTargetSize.padded,
+                onChanged: (bool? value){
+                  setState(() {
+                    filterFinished[1]=value!;
+                });
+                }
+
+              )
+            ],
+          
+          ),
+          for(int i=0;i<types.length;i++)
+            
             Row(
               children: [
-                Image(image: AssetImage("assets/Icons/${imgs[i]}"), height: 80,),
-                Checkbox(value: false, onChanged: (value){;})
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                  child: Image(image: AssetImage("assets/Icons/${types[i]}.png"),width: 80, height: 80,),
+                ),
+                Text(types[i],style: const TextStyle(color: Colors.white),),
+                
+                Column(
+                  children: [
+                    Checkbox(value: availableTypes.contains(types[i]), 
+                      fillColor: MaterialStateProperty.all(Colors.white),
+                      checkColor: Colors.red,
+                      materialTapTargetSize: MaterialTapTargetSize.padded,
+                      onChanged: (bool? value){
+                        setState(() {
+                          if(!value!)
+                          {
+                            availableTypes.remove(types[i]);
+                          }
+                          else
+                          {
+                            availableTypes.add(types[i]);
+                          }
+                      });
+                      }
+                    ),
+                  ],
+                )
               ],
             ),
         ],
