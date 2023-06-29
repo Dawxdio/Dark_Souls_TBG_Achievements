@@ -35,6 +35,44 @@ loadProgress() async {
   }
 }
 
+class NavDrawer extends StatelessWidget {
+  const NavDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    List<String> imgs=["attack.png","block.png","boss.png","death.png","encounter.png","equipment.png"];
+    return Drawer(
+      child: ListView(
+        children: [
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.orange[400],
+              border: const Border(
+                bottom: BorderSide(
+                  color: Colors.purple,
+                  width: 10,
+                ),
+                left: BorderSide(
+                  color: Colors.purple,
+                  width: 5,
+                ),
+              ),
+            ),
+            child: const Text("Filter Achievements"),
+          ),
+          for(int i=0;i<imgs.length;i++)
+            Row(
+              children: [
+                Image(image: AssetImage("assets/Icons/${imgs[i]}"), height: 80,),
+                Checkbox(value: false, onChanged: (value){;})
+              ],
+            ),
+        ],
+      ),
+    );
+  }
+}
+
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -52,6 +90,7 @@ class _MyAppState extends State<MyApp> {
           return const MaterialApp(
             debugShowCheckedModeBanner: false,
             home: Scaffold(
+              endDrawer: NavDrawer(),
               body: Main(),
             ),
           );
@@ -95,22 +134,6 @@ class _MainState extends State<Main> {
       return count;
     }
 
-    void sort() {
-      /*if(complete){
-        achievementNames.sort((a,b){
-        String aValue = achievementDesc[a]![1].toString();
-        String bValue = achievementDesc[b]![1].toString();
-        return bValue.compareTo(aValue);
-      });
-      } else {
-        achievementNames.sort((a,b){
-        String aValue = achievementDesc[a]![1].toString();
-        String bValue = achievementDesc[b]![1].toString();
-        return aValue.compareTo(bValue);
-      });
-      }
-      */
-    }
     void deleteSave() async {
       final directory = await getApplicationDocumentsDirectory();
       final file = File('${directory.path}/progress.json');
@@ -206,15 +229,10 @@ class _MainState extends State<Main> {
                       ),
                       IconButton(
                         onPressed: () {
-                          setState(
-                            () {
-                              // sort();
-                              // complete = !complete;
-                            },
-                          );
+                          Scaffold.of(context).openEndDrawer();
                         },
                         icon: const Icon(
-                          Icons.sort,
+                          Icons.menu,
                           color: Colors.white,
                         ),
                       )
