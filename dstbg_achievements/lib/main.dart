@@ -236,6 +236,7 @@ class _MainState extends State<Main> {
                   setState(
                     () {
                       Navigator.pop(context);
+                      
                     },
                   );
                 },
@@ -326,6 +327,16 @@ class _MainState extends State<Main> {
               shrinkWrap: true,
               itemCount: achievementDesc["template"].length,
               itemBuilder: (BuildContext context, int index) {
+                bool canBeShown=true;
+                print(index);
+                print(achievementDesc["template"].length);
+                for(int i=0; i<achievementDesc["template"][index]["type"].length; i++)
+                {
+                  print(achievementDesc["template"][index]["name"]);
+                  print(achievementDesc["template"][index]["type"][i].toString().toLowerCase());
+                  canBeShown=availableTypes.contains(achievementDesc["template"][index]["type"][i].toString().toLowerCase());
+                }
+                if(canBeShown){
                 return Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -333,40 +344,41 @@ class _MainState extends State<Main> {
                   ),
                   margin: const EdgeInsets.fromLTRB(10, 0, 15, 15),
                   padding: const EdgeInsets.fromLTRB(10, 15, 10, 0),
+                  
                   child: Row(
                     children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width - 100,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              achievementDesc["template"][index]["name"],
-                              style: const TextStyle(
-                                  color: Colors.white, fontSize: 24),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(8, 6, 0, 20),
-                              child: Text(
-                                achievementDesc["template"][index]["desc"],
-                                softWrap: true,
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width - 100,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                achievementDesc["template"][index]["name"],
                                 style: const TextStyle(
-                                    color: Colors.white, fontSize: 18),
+                                    color: Colors.white, fontSize: 24),
                               ),
-                            ),
-                            Row(
-                              children: [
-                                for(int i=0;i<achievementDesc["template"][index]["type"].length;i++) //tak, to działa i jestem z tego powodu bardzo zadowolony :3
-                                  Padding(
-                                  padding: const EdgeInsets.fromLTRB(8, 2, 20, 20),
-                                  child: Image(
-                                    image: whatImage(achievementDesc["template"][index]["type"], i),
-                                    height: 60,
-                                  ),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(8, 6, 0, 20),
+                                child: Text(
+                                  achievementDesc["template"][index]["desc"],
+                                  softWrap: true,
+                                  style: const TextStyle(
+                                      color: Colors.white, fontSize: 18),
                                 ),
-                              ],
-                            ),
-                          ],
+                              ),
+                              Row(
+                                children: [
+                                  for(int i=0;i<achievementDesc["template"][index]["type"].length;i++) //tak, to działa i jestem z tego powodu bardzo zadowolony :3
+                                    Padding(// :3333
+                                    padding: const EdgeInsets.fromLTRB(8, 2, 20, 20),
+                                    child: Image(
+                                      image: whatImage(achievementDesc["template"][index]["type"], i),
+                                      height: 60,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                         ),
                       ),
                       Transform.scale(
@@ -390,6 +402,7 @@ class _MainState extends State<Main> {
                     ],
                   ),
                 );
+              }
               },
             ),
           ),
