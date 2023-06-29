@@ -276,10 +276,10 @@ class _MainState extends State<Main> {
                               children: [
                                 for(int i=0;i<achievementDesc["template"][index]["type"].length;i++) //tak, to działa i jestem z tego powodu bardzo zadowolony :3
                                   Padding(
-                                  padding: const EdgeInsets.fromLTRB(8, 2, 0, 20),
+                                  padding: const EdgeInsets.fromLTRB(8, 2, 20, 20),
                                   child: Image(
                                     image: whatImage(achievementDesc["template"][index]["type"], i),
-                                    height: 70,
+                                    height: 60,
                                   ),
                                 ),
                               ],
