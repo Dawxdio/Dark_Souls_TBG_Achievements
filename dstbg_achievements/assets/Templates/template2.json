@@ -3,28 +3,28 @@
         {
             "name":"Double Crossed",
             "finished":false,
-            "desc":"Defeat a room with an encounter with two sentinels.",
+            "desc":"Defeat an encounter with two Sentinels",
             "expansion":"Core Set",
             "type":["Encounter"]
         },
         {
             "name":"Human Pinball",
             "finished":false,
-            "desc":"Get Pushed 3 times in a row during single enemies Attacks",
+            "desc":"Get Pushed 3 times in a row during a single enemy activation",
             "expansion":"Core Set",
             "type":["Encounter"]
         },
         {
             "name":"Into the Fire",
             "finished":false,
-            "desc":"Defeat 3 enemies standing in the same node with a single attack at once",
+            "desc":"Defeat 3 enemies standing in the same node with a single attack",
             "expansion":"Core Set",
             "type":["Encounter"]
         },
         {
-            "name":"Are you kidding me",
+            "name":"Are you kidding me!?",
             "finished":false,
-            "desc":"Roll 4 Black Dies with a total equal of 0",
+            "desc":"Roll 4 Black Dice with a total equal to 0",
             "expansion":"Core Set",
             "type":["Attack"]
         },
@@ -38,70 +38,70 @@
         {
             "name":"Extra Shiny",
             "finished":false,
-            "desc":"Recieve a total of 3 or more Souls from Barrels",
+            "desc":"Recieve a total of 3 or more Souls from Barrels found in one encounter",
             "expansion":"Core Set",
             "type":["Encounter"]
         },
         {
             "name":"Can't touch this",
             "finished":false,
-            "desc":"Finish an encounter with just one Dodge Chance and Dodging at least one of every enemy during that encounter.",
+            "desc":"Finish an encounter with just one Dodge Chance after Dodging every enemy's attack at least once during that encounter",
             "expansion":"Core Set",
             "type":["Encounter"]
         },
         {
             "name":"Over the top",
             "finished":false,
-            "desc":"Max out all of the Statistics at once",
+            "desc":"Have all of your Stats at Tier 3 at one time",
             "expansion":"Core Set",
             "type":["Equipment"]
         },
         {
             "name":"Stone Wall",
             "finished":false,
-            "desc":"Finish an encounter without moving once.",
+            "desc":"Finish an encounter without moving once",
             "expansion":"Core Set",
             "type":["Encounter"]
         },
         {
             "name":"Cube Master",
             "finished":false,
-            "desc":"Throw 10 or more Dies during one activation",
+            "desc":"Throw 10 or more Dice during one enemy or player activation",
             "expansion":"Core Set",
-            "type":["Attack","Block", "Encounter"]
+            "type":["Attack", "Block", "Encounter"]
         },
         {
             "name":"Lucky Throw",
             "finished":false,
-            "desc":"Reroll an Orange Die that was equal to one, to an Orange Die that is equal to 4.",
+            "desc":"Reroll an Orange Die that was equal to one, to an Orange Die that is equal to 4",
             "expansion":"Core Set",
             "type":["Attack","Block"]
         },
         {
             "name":"Unlucky Bastard",
             "finished":false,
-            "desc":"Buy Reroll During one Spark 3 Times",
+            "desc":"Buy the Reroll Token during one Spark 3 Times",
             "expansion":"Core Set",
             "type":["Equipment"]
         },
         {
             "name":"Busted",
             "finished":false,
-            "desc":"Get Defeated after your first activtion during an encounter",
+            "desc":"Get defeated after the first enemy activtion in an encounter",
             "expansion":"Core Set",
             "type":["Death"]
         },
         {
             "name":"Calculated",
             "finished":false,
-            "desc":"Finish an encounter With 10 Cubes worth of Condition and/or Health.",
+            "desc":"Finish an encounter with your Endurance Bar completely filled up",
             "expansion":"Core Set",
             "type":["Encounter"]
         },
         {
             "name":"Back Pain",
             "finished":false,
-            "desc":"Deal An Extra 2 damage from A Black Die that came from Boss Weakpoint",
+            "desc":"Deal an extra 2 damage from A Black Die that came from a Boss's Weak Arc",
             "expansion":"Core Set",
             "type":["Boss"]
         },
@@ -109,15 +109,15 @@
             "name":"Who's a Good Boy?",
             "finished":false,
             "desc":"Defeat Sif using only Clubs",
-            "expansion":"Core Set",
+            "expansion":"Darkroot Expansion",
             "type":["Boss"]
         },
         {
             "name":"Wasn't in my plans",
             "finished":false,
-            "desc":"Defeat Sif using only Clubs",
+            "desc":"Get pushed into a trap and recieve damage from it",
             "expansion":"Core Set",
-            "type":["Boss"]
+            "type":["Encounter"]
         },
         {
             "name":"Soul Leakage",
@@ -129,35 +129,28 @@
         {
             "name":"Hiding in the shadows",
             "finished":false,
-            "desc":"Be out of range of an attack that have 2 or more range two times in a row",
+            "desc":"Be out of range of an attack that has 2 or more range two times in a row",
             "expansion":"Core Set",
             "type":["Encounter"]
         },
         {
             "name":"PvP Skilled",
             "finished":false,
-            "desc":"Dodge an attack from an invader that requires 3 or more Dodge Requirement.",
+            "desc":"Dodge an attack from an invader that has a Dodge Requirement of 3 or more ",
             "expansion":"Phantoms Expansion",
             "type":["Encounter"]
         },
         {
             "name":"Treasures of War",
             "finished":false,
-            "desc":"Equip and Use at least once piece of equipment from An Invader.",
-            "expansion":"Phantoms Expansion",
-            "type":["Equipment"]
-        },
-        {
-            "name":"Treasures of War",
-            "finished":false,
-            "desc":"Equip and Use at least once piece of equipment from An Invader.",
+            "desc":"Equip and Use at least once piece of equipment from An Invader",
             "expansion":"Phantoms Expansion",
             "type":["Equipment"]
         },
         {
             "name":"Unfair fight",
             "finished":false,
-            "desc":"Die from an enemy while An Invader is present",
+            "desc":"Die from an enemy while an Invader is present",
             "expansion":"Phantoms Expansion",
             "type":["Death"]
         },
@@ -171,56 +164,56 @@
         {
             "name":"Burning passion",
             "finished":false,
-            "desc":"Defeat An Invader with a magic attack that dealt 3 or more damage over the remaining Invaders health",
+            "desc":"Defeat an Invader with a magic attack that dealt 3 or more damage over the remaining Invader's health",
             "expansion":"Phantoms Expansion",
             "type":["Encounter", "Attack"]
         },
         {
             "name":"Break a leg",
             "finished":false,
-            "desc":"Dodge Marvelous Chester Kick Attack",
+            "desc":"Dodge Marvelous Chester's Kick Attack",
             "expansion":"Phantoms Expansion",
             "type":["Encounter", "Block"]
         },
         {
             "name":"Good Herald",
             "finished":false,
-            "desc":"Heal two cube worth of Condition and/or Health from one character at once (Estus Doesn't Count)",
+            "desc":"Heal two cubes from one character's endurance bar in one activation (Except yourself)",
             "expansion":"Core Set",
             "type":["Block"]
         },
         {
             "name":"Great Cleric",
             "finished":false,
-            "desc":"Heal six cube worth of Condition and/or Health from one character at once (Estus Doesn't Count)",
+            "desc":"Heal six cubes from one character's endurance bar in one activation (Except yourself)",
             "expansion":"Core Set",
             "type":["Block"]
         },
         {
             "name":"Awesome Priest",
             "finished":false,
-            "desc":"Heal eight cube worth of Condition and/or Health from one character at once (Estus Doesn't Count)",
+            "desc":"Heal eight cubes from one character's endurance bar in one activation (Except yourself)",
             "expansion":"Core Set",
             "type":["Block"]
         },
         {
             "name":"Could always use a hand...",
             "finished":false,
-            "desc":"Summon friendly ghost to aid you in battle.",
+            "desc":"Summon a Friendly Phantom to aid you in battle",
             "expansion":"Phantoms Expansion",
             "type":["Boss"]
         },
         {
             "name":"More than just help",
             "finished":false,
-            "desc":"Let Friendly Ghost deal the finishing blow to the Enemy.",
+            "desc":"Let a Friendly Phantom deal the finishing blow to an Enemy",
             "expansion":"Phantoms Expansion",
             "type":["Boss"]
         },
         {
             "name":"Duty unfinished",
             "finished":false,
-            "desc":"Get Defeated while a Friendly Ghost is still alive.",
+            "desc":"Get Defeated while a Friendly Phantom is still alive",
             "expansion":"Phantoms Expansion",
             "type":["Boss", "Death"]
         },
@@ -234,70 +227,70 @@
         {
             "name":"Back well protected",
             "finished":false,
-            "desc":"Equip a shield and a double handed weapon at the same time and use them until next Spark",
+            "desc":"Equip a shield and a double handed weapon at the same time and use them until the next Spark",
             "expansion":"Core Set",
             "type":["Equipment"]
         },
         {
             "name":"Double Handed Trouble",
             "finished":false,
-            "desc":"Equip two weapons at the same time and use them until next Spark",
+            "desc":"Equip two damage-dealing weapons at the same time and use them until the next Spark",
             "expansion":"Core Set",
             "type":["Equipment"]
         },
         {
             "name":"Like a gust of wind",
             "finished":false,
-            "desc":"Have a total of 5 or more Green Dies total of Dodge Chance",
+            "desc":"Have a total of 4 or more Dodge Dice available to roll",
             "expansion":"Core Set",
             "type":["Block"]
         },
         {
             "name":"Armed to the teeth",
             "finished":false,
-            "desc":"Have a total of 2 or more Orange Dies as one of the Defenses",
+            "desc":"Have a total of 2 or more Orange Dice for blocking or resisting",
             "expansion":"Core Set",
             "type":["Block"]
         },
         {
             "name":"Overencumbered with shinies",
             "finished":false,
-            "desc":"Have all the equipment slots filled with rings, weapons, weapon upgrades and armors that are possible (12 total)",
+            "desc":"Have all of your available equipment slots and equipment upgrade slots filled (12 total)",
             "expansion":"Core Set",
             "type":["Equipment"]
         },
         {
             "name":"Could never have too many, eh?",
             "finished":false,
-            "desc":"Have at least 10 rings and weapon upgrades in inventory at the same time",
+            "desc":"Have at least 10 equipment upgrades in the Bonfire Inventory at the same time",
             "expansion":"Core Set",
             "type":["Equipment"]
         },
         {
             "name":"Makes my Head spin",
             "finished":false,
-            "desc":"Make enemy have 3 different debuffs at the same time",
+            "desc":"Make an enemy have 3 different debuffs at the same time",
             "expansion":"Core Set",
             "type":["Attack"]
         },
         {
             "name":"That's it?",
             "finished":false,
-            "desc":"finish an encounter within 3 activations",
+            "desc":"Finish an encounter within 3 player activations",
             "expansion":"Core Set",
             "type":["Encounter"]
         },
         {
             "name":"Unsatisfied",
             "finished":false,
-            "desc":"finish an encounter within 3 activations",
+            "desc":"Refresh the Shop 3 times without buying anything (custom ruleset)",
             "expansion":"Core Set",
             "type":["Equipment"]
         },
         {
             "name":"I want it all",
             "finished":false,
-            "desc":"Buy all four items from one shop",
+            "desc":"Buy all four items from one Shop",
             "expansion":"Core Set",
             "type":["Equipment"]
         },
@@ -311,14 +304,14 @@
         {
             "name":"Great Loot",
             "finished":false,
-            "desc":"Equip a piece of equipment acquired from a shop and use it at least once",
+            "desc":"Equip a piece of equipment bought from a Shop and use it at least once",
             "expansion":"Core Set",
             "type":["Equipment"]
         },
         {
             "name":"Awesome Loot",
             "finished":false,
-            "desc":"Equip a Minibosses piece of equipment and use it at least once",
+            "desc":"Equip a Miniboss's piece of equipment and use it at least once",
             "expansion":"Core Set",
             "type":["Equipment"]
         },
@@ -330,9 +323,16 @@
             "type":["Equipment"]
         },
         {
+            "name":"Legendary Loot",
+            "finished":false,
+            "desc":"Equip a Legendary piece of equipment and use it at least once",
+            "expansion":"Core Set",
+            "type":["Equipment"]
+        },
+        {
             "name":"Almost got me",
             "finished":false,
-            "desc":"Finish a trapped Encounter Dodging At least 4 Traps",
+            "desc":"Finish a trapped encounter after Dodging at least 4 Traps",
             "expansion":"Core Set",
             "type":["Encounter"]
         },
@@ -365,14 +365,14 @@
             "type":["Encounter"]
         },
         {
-            "name":"Expert Dice Roller",
+            "name":"Advanced Dice Roller",
             "finished":false,
             "desc":"Defeat a miniboss without using any sparks",
             "expansion":"Core Set",
             "type":["Boss"]
         },
         {
-            "name":"How?",
+            "name":"Expert Dice Roller",
             "finished":false,
             "desc":"Complete the game without using any sparks",
             "expansion":"Core Set",
